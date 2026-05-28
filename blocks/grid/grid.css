@@ -1,0 +1,32 @@
+.grid .grid-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.grid .grid-row:last-child {
+  margin-bottom: 0;
+}
+
+.grid .grid-cell {
+  padding: 16px;
+}
+
+.grid .grid-cell img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (width >= 600px) {
+  .grid .grid-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .grid .grid-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
