@@ -1,3 +1,21 @@
+/* Section layout: heading left, accordion right */
+.section.accordion-faq-container > .default-content-wrapper {
+  margin-bottom: 32px;
+}
+
+@media (width >= 900px) {
+  .section.accordion-faq-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .section.accordion-faq-container > .default-content-wrapper {
+    margin-bottom: 0;
+  }
+}
+
 /* Block: accordion-faq */
 
 .accordion-faq-wrapper {
