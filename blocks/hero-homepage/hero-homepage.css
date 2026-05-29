@@ -1,0 +1,141 @@
+/* Block: hero-homepage */
+
+/* Section-level full-width background */
+main .section.hero-homepage-container {
+  background-color: var(--light-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-width wrapper override */
+.hero-homepage-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.hero-homepage {
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Text column */
+.hero-homepage .hero-homepage-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-homepage h1 {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: var(--heading-font-family);
+  line-height: 1.1;
+  letter-spacing: -1.12px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.hero-homepage .hero-homepage-subheading {
+  font-size: 18px;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 24px 0 0;
+}
+
+/* Button group */
+.hero-homepage .hero-homepage-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-homepage .hero-homepage-buttons a.button {
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--body-font-family);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid var(--text-color);
+}
+
+.hero-homepage .hero-homepage-buttons a.button.primary {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.hero-homepage .hero-homepage-buttons a.button.primary:hover {
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+.hero-homepage .hero-homepage-buttons a.button.secondary {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.hero-homepage .hero-homepage-buttons a.button.secondary:hover {
+  background-color: var(--light-color);
+}
+
+/* Image column */
+.hero-homepage .hero-homepage-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.hero-homepage .hero-homepage-images picture {
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.hero-homepage .hero-homepage-images picture:last-child {
+  grid-column: 1 / 2;
+}
+
+.hero-homepage .hero-homepage-images img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  border-radius: 20px;
+}
+
+/* Desktop layout */
+@media (width >= 900px) {
+  .hero-homepage {
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+    padding: 128px 32px;
+  }
+
+  .hero-homepage .hero-homepage-text {
+    flex: 1 1 50%;
+    min-width: 0;
+  }
+
+  .hero-homepage h1 {
+    font-size: 56px;
+    line-height: 61.6px;
+  }
+
+  .hero-homepage .hero-homepage-images {
+    flex: 1 1 50%;
+    min-width: 0;
+  }
+}

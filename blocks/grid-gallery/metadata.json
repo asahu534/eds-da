@@ -1,0 +1,40 @@
+{
+  "variantName": "grid-gallery",
+  "baseBlock": "grid",
+  "version": "1.0.0",
+  "created": "2026-05-28T17:12:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd-trendsetters.site/",
+    "originPage": "homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "compact",
+    "purpose": "photo-gallery",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "4x2 grid of square images",
+    "buttonCount": 0,
+    "imageCount": 8
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "photo galleries",
+      "image grids",
+      "portfolio showcases",
+      "lifestyle imagery collections"
+    ],
+    "notSuitableFor": [
+      "content grids with text",
+      "card layouts with descriptions",
+      "feature grids with icons"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-28T17:12:00.000Z"
+  }
+}

@@ -1,0 +1,140 @@
+/* hero-banner block: full-width CTA card with background image and gradient overlay */
+
+/* Section padding handled by .section.dark already (64px 0), but source has 128px */
+.hero-banner-container.dark {
+  padding: 128px 0;
+}
+
+/* The block itself acts as the rounded card */
+.hero-banner {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 448px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Dark gradient overlay via pseudo-element */
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(to top, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 0%) 60%);
+  pointer-events: none;
+}
+
+/* Content rows (rows 2, 3, 4): text content area */
+.hero-banner > div:nth-child(n+2) {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+  max-width: 672px;
+}
+
+/* Row 2: heading */
+.hero-banner > div:nth-child(2) {
+  padding-top: 32px;
+}
+
+/* Row 4 (button row): bottom padding */
+.hero-banner > div:last-child {
+  padding-bottom: 32px;
+}
+
+/* Row 1: background image container */
+.hero-banner > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-banner > div:first-child > div {
+  height: 100%;
+}
+
+.hero-banner > div:first-child picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-banner > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Headings */
+.hero-banner h2 {
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.12px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+/* Paragraphs */
+.hero-banner p {
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 28.8px;
+  color: #fff;
+  margin: 16px 0 0;
+}
+
+/* Button wrapper reset (EDS may add p.button-wrapper) */
+.hero-banner p.button-wrapper {
+  margin: 0;
+}
+
+/* Links styled as CTA button - specificity exceeds main .section.dark a:any-link */
+main .section.dark .hero-banner a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 32px;
+}
+
+main .section.dark .hero-banner a:hover {
+  background-color: rgb(255 255 255 / 90%);
+  color: #000;
+  text-decoration: none;
+}
+
+/* Desktop styles */
+@media (width >= 900px) {
+  .hero-banner {
+    min-height: 448px;
+  }
+
+  .hero-banner > div:nth-child(n+2) {
+    padding: 0 64px;
+  }
+
+  .hero-banner > div:nth-child(2) {
+    padding-top: 64px;
+  }
+
+  .hero-banner > div:last-child {
+    padding-bottom: 64px;
+  }
+
+  .hero-banner h2 {
+    font-size: 56px;
+    line-height: 61.6px;
+  }
+}

@@ -1,0 +1,118 @@
+/* Block: columns-feature */
+
+/* Mobile-first base styles */
+.columns-feature {
+  color: var(--text-color);
+}
+
+.columns-feature > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-feature > div > div {
+  order: 1;
+}
+
+.columns-feature > div > .columns-feature-img-col {
+  order: 0;
+}
+
+/* Image styling - 3:2 aspect ratio, rounded corners */
+.columns-feature > div > .columns-feature-img-col img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Text content cell */
+.columns-feature > div > div:not(.columns-feature-img-col) {
+  padding: 16px 0 0;
+}
+
+/* Breadcrumb paragraph (first p with links) */
+.columns-feature > div > div:not(.columns-feature-img-col) > p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 32px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+}
+
+.columns-feature > div > div:not(.columns-feature-img-col) > p:first-child a:any-link {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.columns-feature > div > div:not(.columns-feature-img-col) > p:first-child a:last-child {
+  color: var(--link-color);
+}
+
+/* Chevron separator between breadcrumb links - using CSS pseudo-element */
+.columns-feature > div > div:not(.columns-feature-img-col) > p:first-child a:first-child::after {
+  content: "\203A";
+  display: inline-block;
+  margin-left: 8px;
+  color: var(--link-color);
+  font-size: 16px;
+}
+
+/* Heading */
+.columns-feature h2 {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--heading-font-family);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Author paragraph */
+.columns-feature > div > div:not(.columns-feature-img-col) > p:nth-child(3) {
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 16px 0 0;
+}
+
+/* Date/read time paragraph */
+.columns-feature > div > div:not(.columns-feature-img-col) > p:nth-child(4) {
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  color: var(--link-color);
+  margin: 8px 0 0;
+}
+
+/* Desktop layout */
+@media (width >= 900px) {
+  .columns-feature > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    flex-direction: unset;
+  }
+
+  .columns-feature > div > div {
+    order: unset;
+  }
+
+  .columns-feature > div > div:not(.columns-feature-img-col) {
+    padding: 0;
+  }
+
+  .columns-feature h2 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
