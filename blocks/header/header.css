@@ -3,7 +3,9 @@ header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
   z-index: 2;
-  position: fixed;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid rgb(232 232 232);
 }
 
 header nav {
@@ -13,7 +15,7 @@ header nav {
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
-  gap: 0 24px;
+  gap: 0 32px;
   margin: auto;
   max-width: 1248px;
   height: var(--nav-height);
@@ -32,7 +34,7 @@ header nav[aria-expanded='true'] {
 
 @media (width >= 900px) {
   header .nav-wrapper {
-    position: relative;
+    position: sticky;
   }
 
   header nav {
@@ -40,7 +42,7 @@ header nav[aria-expanded='true'] {
     justify-content: space-between;
     gap: 0 32px;
     max-width: 1264px;
-    padding: 0 32px;
+    padding: 16px 32px;
   }
 
   header nav[aria-expanded='true'] {
@@ -56,6 +58,12 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: none;
+  opacity: 0.7;
 }
 
 /* hamburger */
@@ -143,9 +151,10 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
+  font-size: 16px;
   font-weight: 700;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 header nav .nav-brand img {
@@ -170,7 +179,7 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: 14px;
 }
 
 header nav .nav-sections ul > li {
@@ -238,14 +247,19 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
+  /* megamenu dropdown */
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
     position: absolute;
     left: -24px;
-    width: 200px;
+    min-width: 600px;
     top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
+    padding: 32px;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    box-shadow: 0 16px 48px rgb(0 0 0 / 12%);
     white-space: initial;
   }
 
@@ -253,20 +267,79 @@ header nav .nav-sections ul > li > ul > li {
     content: '';
     position: absolute;
     top: -8px;
-    left: 16px;
+    left: 32px;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    border-bottom: 8px solid var(--background-color);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > p {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--link-color);
+    margin-bottom: 12px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > ul > li {
+    padding: 4px 0;
+    font-size: 14px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > ul > li a:hover {
+    opacity: 0.7;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > p + p {
+    font-size: 13px;
+    color: var(--link-color);
+    margin-top: 4px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > p + p + p a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
   }
 }
 
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+header nav .nav-tools .button-container {
+  margin: 0;
+}
+
+header nav .nav-tools a.button {
+  background-color: var(--text-color);
+  border: 2px solid var(--text-color);
+  color: var(--background-color);
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+header nav .nav-tools a.button:hover {
+  opacity: 0.85;
 }
