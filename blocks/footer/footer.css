@@ -16,6 +16,10 @@ footer .footer > div {
   gap: 48px;
 }
 
+footer .footer > div > :not(.section) {
+  display: none;
+}
+
 footer .footer p {
   margin: 0;
 }
@@ -30,23 +34,23 @@ footer .footer a:hover {
 }
 
 /* brand + social section */
-footer .footer .section:first-child {
+footer .footer .section:first-of-type {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-footer .footer .section:first-child .default-content-wrapper > p:first-child {
+footer .footer .section:first-of-type .default-content-wrapper > p:first-child {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-footer .footer .section:first-child .default-content-wrapper > p:first-child a {
+footer .footer .section:first-of-type .default-content-wrapper > p:first-child a {
   color: #fff;
 }
 
-footer .footer .section:first-child ul {
+footer .footer .section:first-of-type ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -55,7 +59,7 @@ footer .footer .section:first-child ul {
 }
 
 /* link column sections */
-footer .footer .section:not(:first-child) h2 {
+footer .footer .section:not(:first-of-type) h2 {
   font-family: var(--heading-font-family);
   font-size: 14px;
   font-weight: 700;
@@ -65,7 +69,7 @@ footer .footer .section:not(:first-child) h2 {
   margin: 0 0 16px;
 }
 
-footer .footer .section:not(:first-child) ul {
+footer .footer .section:not(:first-of-type) ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -74,7 +78,7 @@ footer .footer .section:not(:first-child) ul {
   gap: 10px;
 }
 
-footer .footer .section:not(:first-child) ul li {
+footer .footer .section:not(:first-of-type) ul li {
   font-size: 14px;
 }
 
@@ -85,6 +89,5 @@ footer .footer .section:not(:first-child) ul li {
 
   footer .footer > div {
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 48px;
   }
 }
