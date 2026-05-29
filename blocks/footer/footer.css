@@ -2,17 +2,18 @@ footer {
   background-color: var(--dark-color);
   color: #fff;
   font-size: var(--body-font-size-xs);
-  padding: 80px 0;
+}
+
+footer .footer {
+  margin: auto;
+  max-width: 1200px;
+  padding: 80px 24px;
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 0 24px;
-}
-
-footer .footer > div + div {
-  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
 }
 
 footer .footer p {
@@ -28,24 +29,24 @@ footer .footer a:hover {
   color: #fff;
 }
 
-/* brand + social row */
-footer .footer > div:first-child {
+/* brand + social section */
+footer .footer .section:first-child {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-footer .footer > div:first-child > p:first-child {
+footer .footer .section:first-child .default-content-wrapper > p:first-child {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-footer .footer > div:first-child > p:first-child a {
+footer .footer .section:first-child .default-content-wrapper > p:first-child a {
   color: #fff;
 }
 
-footer .footer > div:first-child ul {
+footer .footer .section:first-child ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -53,14 +54,8 @@ footer .footer > div:first-child ul {
   gap: 12px;
 }
 
-/* link columns */
-footer .footer > div:last-child {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-}
-
-footer .footer > div:last-child h2 {
+/* link column sections */
+footer .footer .section:not(:first-child) h2 {
   font-family: var(--heading-font-family);
   font-size: 14px;
   font-weight: 700;
@@ -70,34 +65,26 @@ footer .footer > div:last-child h2 {
   margin: 0 0 16px;
 }
 
-footer .footer > div:last-child ul {
+footer .footer .section:not(:first-child) ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-footer .footer > div:last-child ul li {
+footer .footer .section:not(:first-child) ul li {
   font-size: 14px;
 }
 
 @media (width >= 900px) {
+  footer .footer {
+    padding: 80px 32px;
+  }
+
   footer .footer > div {
-    padding: 0 32px;
-  }
-
-  footer .footer > div:first-child {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  footer .footer > div:last-child {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 48px;
-    padding-top: 48px;
-    border-top: 1px solid rgb(255 255 255 / 10%);
   }
 }
