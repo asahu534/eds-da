@@ -1,9 +1,5 @@
 sitemaps:
   default:
     source: /query-index.json
-    destination: /sitemap.xml
-    lastmod: lastModified
-  custom:
-    source: /query-index.json
     destination: /custom-sitemap.xml
     lastmod: lastModified
