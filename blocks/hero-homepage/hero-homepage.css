@@ -4,7 +4,6 @@
 main .section.hero-homepage-container {
   background-color: var(--light-color);
   margin: 0;
-  padding: 0;
 }
 
 /* Full-width wrapper override */
