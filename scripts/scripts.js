@@ -10,7 +10,39 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  createOptimizedPicture,
 } from './aem.js';
+
+/**
+ * Converts links and bare-text image URLs into responsive pictures.
+ * Lets authors paste an image URL (external or Dynamic Media) in any block
+ * and have it render as an image, without per-block code.
+ * @param {Element} main The container element
+ */
+function decorateExternalImages(main) {
+  const isImageUrl = (url) => /\.(jpe?g|png|webp|gif|avif)(\?|$)/i.test(url)
+    || /\/is\/image\//.test(url)
+    || /\/adobe\/assets\/urn:/.test(url);
+
+  // 1. Anchor links that point to an image become a picture
+  main.querySelectorAll('a[href]').forEach((a) => {
+    const url = a.getAttribute('href');
+    const text = a.textContent.trim();
+    // skip if the link wraps something other than its own URL text
+    if (!isImageUrl(url)) return;
+    if (a.querySelector('img, picture')) return;
+    const alt = text && !isImageUrl(text) ? text : '';
+    a.replaceWith(createOptimizedPicture(url, alt));
+  });
+
+  // 2. Paragraphs whose only content is a bare image URL become a picture
+  main.querySelectorAll('p').forEach((p) => {
+    if (p.children.length > 0) return;
+    const text = p.textContent.trim();
+    if (!isImageUrl(text)) return;
+    p.replaceChildren(createOptimizedPicture(text));
+  });
+}
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -124,6 +156,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateExternalImages(main);
 }
 
 /**
