@@ -22,10 +22,24 @@
 }
 
 .api-feed .api-feed-item p {
-  margin: 0;
+  margin: 0 0 4px;
   font-size: 14px;
   color: var(--link-color);
   line-height: 1.5;
+}
+
+.api-feed .api-feed-company {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.api-feed .api-feed-email a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.api-feed .api-feed-email a:hover {
+  text-decoration: underline;
 }
 
 .api-feed .api-feed-loading,

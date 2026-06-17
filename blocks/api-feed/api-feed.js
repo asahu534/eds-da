@@ -36,21 +36,36 @@ export default async function decorate(block) {
     const list = document.createElement('ul');
     list.className = 'api-feed-list';
 
-    items.slice(0, 12).forEach((item) => {
+    items.slice(0, 12).forEach((user) => {
       const li = document.createElement('li');
       li.className = 'api-feed-item';
 
-      const title = item.title || item.name || item.headline || 'Untitled';
-      const body = item.body || item.description || item.summary || '';
-
       const h3 = document.createElement('h3');
-      h3.textContent = title;
+      h3.textContent = user.name || 'Unknown';
       li.append(h3);
 
-      if (body) {
-        const p = document.createElement('p');
-        p.textContent = body;
-        li.append(p);
+      if (user.email) {
+        const email = document.createElement('p');
+        email.className = 'api-feed-email';
+        const link = document.createElement('a');
+        link.href = `mailto:${user.email}`;
+        link.textContent = user.email;
+        email.append(link);
+        li.append(email);
+      }
+
+      if (user.company && user.company.name) {
+        const company = document.createElement('p');
+        company.className = 'api-feed-company';
+        company.textContent = user.company.name;
+        li.append(company);
+      }
+
+      if (user.website) {
+        const website = document.createElement('p');
+        website.className = 'api-feed-website';
+        website.textContent = user.website;
+        li.append(website);
       }
 
       list.append(li);
