@@ -1,0 +1,48 @@
+.image-compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.image-compare .image-compare-col {
+  border: 1px solid rgb(232 232 232);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.image-compare .image-compare-col h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.image-compare .image-compare-note {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: var(--link-color);
+  line-height: 1.4;
+}
+
+.image-compare picture {
+  display: block;
+  line-height: 0;
+}
+
+.image-compare img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.image-compare .image-compare-error {
+  font-size: 14px;
+  color: #c00;
+}
+
+@media (width >= 900px) {
+  .image-compare {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
