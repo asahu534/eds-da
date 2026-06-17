@@ -2,25 +2,27 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 
 /**
  * image-compare block
- * Renders the SAME image two ways to demonstrate delivery differences:
+ * Renders two images to demonstrate delivery differences:
  *   - Approach A: EDS Media Bus optimization (createOptimizedPicture)
- *     → webp/avif renditions, optimize=medium, served same-origin
- *   - Approach B: external delivery URL (e.g. Dynamic Media) with raw params
+ *     → webp renditions, optimize=medium, served same-origin
+ *   - Approach B: external delivery URL (e.g. Dynamic Media / CDN) with raw params
  *     → served from the asset's own CDN, transformed via URL params
  *
  * Author provides, per row:
- *   row 1: the image URL (used for both approaches)
- *   row 2 (optional): alt text
+ *   row 1: Media Bus image URL (Approach A)
+ *   row 2: external delivery / Dynamic Media URL (Approach B)
+ *   row 3 (optional): alt text
  */
 export default function decorate(block) {
   const rows = [...block.children];
-  const src = rows[0]?.textContent.trim();
-  const alt = rows[1]?.textContent.trim() || '';
+  const mediaBusSrc = rows[0]?.textContent.trim();
+  const externalSrc = rows[1]?.textContent.trim();
+  const alt = rows[2]?.textContent.trim() || '';
 
   block.textContent = '';
 
-  if (!src) {
-    block.innerHTML = '<p class="image-compare-error">No image URL provided.</p>';
+  if (!mediaBusSrc || !externalSrc) {
+    block.innerHTML = '<p class="image-compare-error">Both a Media Bus URL and an external delivery URL are required.</p>';
     return;
   }
 
@@ -32,7 +34,7 @@ export default function decorate(block) {
   const noteA = document.createElement('p');
   noteA.className = 'image-compare-note';
   noteA.textContent = 'Optimized via createOptimizedPicture (webp, optimize=medium, same-origin)';
-  const pictureA = createOptimizedPicture(src, alt, false);
+  const pictureA = createOptimizedPicture(mediaBusSrc, alt, false);
   colA.append(labelA, noteA, pictureA);
 
   // --- Approach B: external delivery URL with raw transformation params ---
@@ -45,7 +47,9 @@ export default function decorate(block) {
   noteB.textContent = 'Referenced from source CDN, transformed via URL params (width, quality)';
 
   const buildSrc = (width) => {
-    const u = !src.startsWith('http') ? new URL(src, window.location.href) : new URL(src);
+    const u = !externalSrc.startsWith('http')
+      ? new URL(externalSrc, window.location.href)
+      : new URL(externalSrc);
     u.searchParams.set('width', width);
     u.searchParams.set('quality', '80');
     return u.toString();
