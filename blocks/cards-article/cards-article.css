@@ -120,7 +120,7 @@
 /* Variant: minimal */
 .cards-article.minimal > ul > li {
   border: none;
-  border-radius: 0;
+  border-radius: 2px;
   border-bottom: 1px solid rgb(232 232 232);
 }
 
