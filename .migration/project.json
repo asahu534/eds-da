@@ -1,7 +1,17 @@
 {
-  "previewOrg": "asahu534",
-  "previewSite": "eds-da",
   "type": "da",
-  "contentHostUrl": "https://content.da.live/asahu534/eds-da/",
-  "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+  "sites": {
+    "eds-da": {
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
+      "previewOrg": "asahu534",
+      "previewSite": "eds-da",
+      "contentHostUrl": "https://content.da.live/asahu534/eds-da/"
+    },
+    "eds-gd": {
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
+      "previewOrg": "asahu534",
+      "previewSite": "eds-gd",
+      "contentHostUrl": "https://content.da.live/asahu534/eds-gd/"
+    }
+  }
 }
