@@ -1,0 +1,94 @@
+/* cards-featured -- Merkle "Our latest and greatest" featured content cards.
+   Dark cards on a white page: full-bleed image with a black overlay panel
+   holding an uppercase grey eyebrow, a white title, and a bottom-anchored
+   "Learn more" link. Values extracted from source computed styles. */
+
+.cards-featured > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (width >= 900px) {
+  .cards-featured > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 20px;
+  }
+}
+
+/* Card: black background, image fills, text overlaid on top */
+.cards-featured > ul > li {
+  position: relative;
+  display: block;
+  aspect-ratio: 330 / 436;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* Image fills the whole card */
+.cards-featured .cards-featured-card-image {
+  position: absolute;
+  inset: 0;
+  line-height: 0;
+}
+
+.cards-featured .cards-featured-card-image picture,
+.cards-featured .cards-featured-card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.cards-featured .cards-featured-card-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Text panel overlaid over the image */
+.cards-featured .cards-featured-card-body {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+/* Eyebrow / category */
+.cards-featured .cards-featured-card-body p:first-child {
+  margin: 0;
+  color: var(--brand-eyebrow);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+/* Title */
+.cards-featured .cards-featured-card-body h3 {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: none;
+}
+
+/* "Learn more" link -- pinned to the bottom of the card */
+.cards-featured .cards-featured-card-body p:last-child {
+  margin: auto 0 0;
+}
+
+.cards-featured .cards-featured-card-body a:any-link {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.cards-featured .cards-featured-card-body a:hover {
+  text-decoration: underline;
+}

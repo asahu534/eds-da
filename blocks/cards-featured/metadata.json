@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-featured",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-09-07T09:30:03.493Z",
+  "sourceContext": {
+    "originUrl": "https://www.merkle.com/",
+    "originPage": "homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "compact",
+    "purpose": "featured-content",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + category eyebrow + title + CTA link per card",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "featured content promos (events, research, playbooks)",
+      "dark-background editorial card rows",
+      "image + tag + title card sets"
+    ],
+    "notSuitableFor": [
+      "icon-only feature grids without images",
+      "light-background article listings"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-07T09:30:03.493Z"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "variantName": "carousel-cases",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-09-07T09:30:03.493Z",
+  "sourceContext": {
+    "originUrl": "https://www.merkle.com/",
+    "originPage": "homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "compact",
+    "purpose": "case-studies",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "client eyebrow + title + CTA link + image per card, horizontally scrollable",
+    "buttonCount": 0,
+    "imageCount": 3,
+    "slides": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "case-study galleries",
+      "client work showcases with prev/next controls",
+      "scrollable card carousels"
+    ],
+    "notSuitableFor": [
+      "single full-bleed hero banners",
+      "static non-repeating content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-07T09:30:03.493Z"
+  }
+}

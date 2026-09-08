@@ -1,0 +1,76 @@
+/* cards-feature -- 4-up capability feature grid
+   Source: merkle.com home "Built for the experience economy" (dark section).
+   Transparent 3D-shape PNG icon, bold h6, body paragraph; white text on #000.
+   Values extracted from source computed styles. */
+
+.cards-feature > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px 24px;
+}
+
+.cards-feature > ul > li {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* image cell -- transparent PNG, keeps natural landscape aspect (~1440 x 972) */
+.cards-feature .cards-feature-card-image {
+  line-height: 0;
+}
+
+.cards-feature .cards-feature-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+/* text cell */
+.cards-feature .cards-feature-card-body {
+  margin: 0;
+}
+
+.cards-feature .cards-feature-card-body h6 {
+  margin: 32px 0 12px;
+  font-family: var(--body-font-family);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: #fff;
+}
+
+.cards-feature .cards-feature-card-body p {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
+}
+
+/* tablet: 2 columns */
+@media (width >= 600px) {
+  .cards-feature > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* desktop: 4 columns */
+@media (width >= 900px) {
+  .cards-feature > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px 24px;
+  }
+
+  .cards-feature .cards-feature-card-body h6 {
+    margin: 48px 0 16px;
+  }
+}
