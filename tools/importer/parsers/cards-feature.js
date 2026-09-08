@@ -66,7 +66,7 @@ export default function parse(element, { document }) {
     return;
   }
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-feature', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: 'Cards (feature)', cells });
   element.replaceWith(block);
 
   // Remove any remaining sibling cards now folded into the block.
