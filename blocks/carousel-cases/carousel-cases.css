@@ -1,0 +1,207 @@
+/*
+ * carousel-cases -- "Our work in action" case-study gallery
+ * Horizontally scrolling portrait cards on a dark section.
+ * Values extracted from source: .listcards.teasergallerylist on merkle.com
+ */
+
+.carousel-cases {
+  color: #fff;
+}
+
+/* --- Headline ("Our work in action") --- */
+.carousel-cases .carousel-cases-headline {
+  margin-bottom: 24px;
+}
+
+.carousel-cases .carousel-cases-headline h2 {
+  margin: 0;
+}
+
+.carousel-cases .carousel-cases-slides-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slides container must be allowed to shrink inside the flex row so the
+   horizontal scroll track doesn't overflow its column. */
+.carousel-cases.has-headline .carousel-cases-slides-container {
+  min-width: 0;
+}
+
+/* --- Slide track (horizontal scroll) --- */
+.carousel-cases .carousel-cases-slides {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-cases .carousel-cases-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Card --- */
+.carousel-cases .carousel-cases-slide {
+  position: relative;
+  flex: 0 0 auto;
+  width: 300px;
+  aspect-ratio: 330 / 587;
+  border-radius: 24px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  min-height: 0;
+}
+
+/* --- Image fills the card --- */
+.carousel-cases .carousel-cases-slide .carousel-cases-slide-image {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.carousel-cases .carousel-cases-slide .carousel-cases-slide-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-cases .carousel-cases-slide .carousel-cases-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Text overlay with dark top gradient --- */
+.carousel-cases .carousel-cases-slide .carousel-cases-slide-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 24px 16px;
+  color: #fff;
+  background: linear-gradient(rgb(0 0 0 / 95%) 0.03%, rgb(0 0 0 / 0%) 99.97%);
+}
+
+/* eyebrow (client name) */
+.carousel-cases .carousel-cases-slide-content p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--brand-eyebrow, #aeaebc);
+}
+
+.carousel-cases .carousel-cases-slide-content h3 {
+  margin: 16px 0 0;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #fff;
+}
+
+/* "Read case" link */
+.carousel-cases .carousel-cases-slide-content p:last-child {
+  margin-top: 32px;
+}
+
+.carousel-cases .carousel-cases-slide-content a:any-link {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
+  text-transform: none;
+  text-decoration: none;
+  background: none;
+}
+
+/* --- Navigation arrows (white circles, bottom-left) --- */
+.carousel-cases .carousel-cases-navigation-buttons {
+  order: 2;
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.carousel-cases .carousel-cases-navigation-buttons button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.carousel-cases .carousel-cases-navigation-buttons button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel-cases .carousel-cases-navigation-buttons button:not(:disabled):hover,
+.carousel-cases .carousel-cases-navigation-buttons button:not(:disabled):focus-visible {
+  opacity: 0.85;
+}
+
+.carousel-cases .carousel-cases-navigation-buttons button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #000;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+.carousel-cases .carousel-cases-navigation-buttons button.slide-prev::after {
+  transform: translate(-30%, -50%) rotate(-135deg);
+}
+
+.carousel-cases .carousel-cases-navigation-buttons button.slide-next::after {
+  transform: translate(-70%, -50%) rotate(45deg);
+}
+
+/* Source shows arrows only -- hide the generated dot indicators */
+.carousel-cases > nav {
+  display: none;
+}
+
+/* --- Desktop --- */
+@media (width >= 900px) {
+  .carousel-cases .carousel-cases-slide {
+    width: 330px;
+  }
+
+  /* Two-column layout: headline in a fixed left column, carousel on the right
+     (matches the source .listcards row layout). */
+  .carousel-cases.has-headline {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .carousel-cases.has-headline .carousel-cases-headline {
+    flex: 0 0 345px;
+    max-width: 345px;
+    margin-bottom: 0;
+  }
+
+  .carousel-cases.has-headline .carousel-cases-slides-container {
+    flex: 1 1 auto;
+  }
+}

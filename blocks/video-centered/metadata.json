@@ -1,0 +1,40 @@
+{
+  "variantName": "video-centered",
+  "baseBlock": "video",
+  "version": "1.0.0",
+  "created": "2026-09-07T09:30:03.493Z",
+  "sourceContext": {
+    "originUrl": "https://www.merkle.com/",
+    "originPage": "homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "brand-video",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "single self-hosted video with poster image + centered play button",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "centered brand / sizzle-reel videos",
+      "single featured video with poster",
+      "inline video within a content section"
+    ],
+    "notSuitableFor": [
+      "multiple videos in a gallery",
+      "external YouTube/Vimeo-only embeds needing Embed block styling"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-07T09:30:03.493Z"
+  }
+}

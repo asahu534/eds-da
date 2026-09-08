@@ -25,3 +25,177 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+/* ============================================================
+   Variant: cards featured
+   Merkle "Our latest and greatest" featured content cards.
+   Dark cards on a white page: full-bleed image with a black overlay panel
+   holding an uppercase grey eyebrow, a white title, and a bottom-anchored
+   "Learn more" link. Values extracted from source computed styles.
+   ============================================================ */
+
+.cards.featured > ul {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (width >= 900px) {
+  .cards.featured > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 20px;
+  }
+}
+
+/* Card: black background, image fills, text overlaid on top */
+.cards.featured > ul > li {
+  position: relative;
+  display: block;
+  aspect-ratio: 330 / 436;
+  background-color: #000;
+  border: none;
+  overflow: hidden;
+}
+
+/* Image fills the whole card */
+.cards.featured .cards-card-image {
+  position: absolute;
+  inset: 0;
+  line-height: 0;
+}
+
+.cards.featured .cards-card-image picture,
+.cards.featured .cards-card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.cards.featured .cards-card-image img {
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Text panel overlaid over the image */
+.cards.featured .cards-card-body {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+/* Eyebrow / category */
+.cards.featured .cards-card-body p:first-child {
+  margin: 0;
+  color: var(--brand-eyebrow);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+/* Title */
+.cards.featured .cards-card-body h3 {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: none;
+}
+
+/* "Learn more" link -- pinned to the bottom of the card */
+.cards.featured .cards-card-body p:last-child {
+  margin: auto 0 0;
+}
+
+.cards.featured .cards-card-body a:any-link {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.cards.featured .cards-card-body a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Variant: cards feature
+   4-up capability feature grid.
+   Source: merkle.com home "Built for the experience economy" (dark section).
+   Transparent 3D-shape PNG icon, bold h6, body paragraph; white text on #000.
+   Values extracted from source computed styles.
+   ============================================================ */
+
+.cards.feature > ul {
+  grid-template-columns: 1fr;
+  gap: 40px 24px;
+}
+
+.cards.feature > ul > li {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* image cell -- transparent PNG, keeps natural landscape aspect */
+.cards.feature .cards-card-image {
+  line-height: 0;
+}
+
+.cards.feature .cards-card-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+/* text cell */
+.cards.feature .cards-card-body {
+  margin: 0;
+}
+
+.cards.feature .cards-card-body h6 {
+  margin: 32px 0 12px;
+  font-family: var(--body-font-family);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: #fff;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- different variant scope (.feature vs .featured); no real cascade conflict */
+.cards.feature .cards-card-body p {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
+}
+
+/* tablet: 2 columns */
+@media (width >= 600px) {
+  .cards.feature > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* desktop: 4 columns */
+@media (width >= 900px) {
+  .cards.feature > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px 24px;
+  }
+
+  .cards.feature .cards-card-body h6 {
+    margin: 48px 0 16px;
+  }
+}
